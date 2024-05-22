@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de senha</title>
+  <link rel="stylesheet" href="./src/styles/css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="title">Gerador de senha</h1>
+      <p>
+        Crie uma senha forte e segura para seus acessos online.
+      </p>  
+    </div>
+  </header>
+  <main class="main">
+    <div class="container">
+
+      <section class="input-box">
+        <div class="password">
+  
+          <div class="text">
+            <input type="text" name="password" id="password"/>  
+          </div>
+    
+          <div class="actions">
+            <button id="copy-1" title="Copiar">
+              <img src="./src/icons/copy-password.svg" alt="Ícone de copy">
+            </button>
+            <button id="new-password" title="Gerar novamente">
+              <img src="./src/icons/renew-password.svg" alt="Ícone de gerar senha novamente">
+            </button>
+          </div>
+  
+        </div>
+        <div class="security-indicator">
+          <div id="security-indicator-bar" class="bar"></div>
+        </div>
+        <span class="label-password"></span>
+      </section>
+  
+      <section class="input-box customize">
+        <h3 class="title">Personalizar</h3>
+        <div class="actions">
+          <div class="password-length">
+            <p>Tamanho: <span id="password-length-text">16</span></p>
+            <input type="range" name="password-length" id="password-length" class="slider" value="16" min="4" max="64"/>
+          </div>
+          <div class="config">
+            <label class="checkbox-container">
+              <span class="text">Maiúsculas</span>
+              <input type="checkbox" id="upercase-check" checked>
+              <span class="checkmark"></span>
+            </label>
+  
+            <label class="checkbox-container">
+              <span class="text">Números</span>
+              <input type="checkbox" id="number-check" checked>
+              <span class="checkmark"></span>
+            </label>
+  
+            <label class="checkbox-container">
+              <span class="text">Símbolos</span>
+              <input type="checkbox" id="symbol-check" checked>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+  
+      </section>
+  
+      <div class="submit">
+          <button id="copy-2">Copiar senha</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="./src/js/app.js"></script>
+</body>
+</html>

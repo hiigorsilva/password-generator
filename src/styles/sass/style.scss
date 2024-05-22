@@ -1,0 +1,285 @@
+@import 'utils';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8fafd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #252525;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #252525;
+  padding-block: 2rem;
+  text-align: center;
+
+  .container {
+    @extend .container;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #f8fafd;
+    }
+  
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #c2c4c7;
+    }  
+  }
+}
+.main {
+  padding-inline: 1.5rem;
+
+  .container {
+    @extend .container;
+
+    .input-box {
+      background-color: #f8fafd;
+      .password {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding-block: 1rem;
+  
+        .text {
+          flex: 1;
+  
+          input {
+            font-family: inherit;
+            font-size: 2rem;
+            border: none;
+            outline: none;
+            cursor: default;
+            background-color: transparent;
+            height: 3rem;
+            width: 100%;
+            transition: all .2s ease;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+  
+            &.font-sm {
+              font-size: 2rem;
+            }
+            &.font-xs {
+              font-size: 1.5rem;
+            }
+            &.font-xxs {
+              font-size: 1rem;
+            }  
+          }
+        }
+  
+        .actions {
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+  
+          button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: .7;
+            transition: opacity .2s;
+            width: 2rem;
+            aspect-ratio: 1/1;
+            border-radius: .25rem;
+            
+            img {
+              height: 100%;
+            }
+          }
+  
+        }
+      }
+  
+      .security-indicator {
+        height: .5rem;
+        background-color: #ddd;
+        border-radius: 1rem;
+  
+        .bar {
+          height: 100%;
+          border-radius: 1rem;
+          transition: all .2s ease;
+  
+          &.critical {
+            background-color: #eb5757;
+          }
+          &.warning {
+            background-color: #f2c94c;
+          }
+          &.safe {
+            background-color: #27ae60;
+          }
+        }
+      }
+
+      .label-password {
+        display: block;
+        font-size: .875rem;
+        font-weight: 500;
+        margin-top: .5rem;
+
+        &.low {
+          color: #eb5757;
+        }
+        &.mid {
+          color: #f2c94c;
+        }
+        &.hight {
+          color: #27ae60;
+        }
+      }
+    }
+    .customize {
+      padding: 1rem 0;
+  
+      .title {
+        border-bottom: 1px solid #99999973;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: .5rem; 
+      }
+  
+      .actions {
+        display: flex;
+        gap: 3rem;
+        color: #828282;
+  
+        .password-length {
+          flex: 1;
+  
+          .slider {
+            appearance: none;
+            -webkit-appearance: none;
+            height: .5rem;
+            background-color: #ddd;
+            outline: none;
+            border-radius: .5rem;
+            width: 100%;
+            opacity: .7;
+            transition: opacity .2s;
+            margin-top: 1rem;
+  
+            &:hover {
+              opacity: 1;
+            }
+  
+            &::-webkit-slider-thumb {
+              appearance: none;
+              -webkit-appearance: none;
+              width: 1.25rem;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: #9b51e0;
+              cursor: pointer;
+            }
+  
+            &::-moz-slider-thumb {
+              appearance: none;
+              -webkit-appearance: none;
+              width: 1.25rem;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: #9b51e0;
+              cursor: pointer;
+            }
+          }
+        }
+  
+        .config {
+          .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+  
+            &:hover input ~ .checkmark {
+              background-color: #ccc;
+            }
+  
+            & input:checked ~ .checkmark {
+              background-color: #9b51e0;
+  
+              &:after {
+                display: block;
+              }
+            }
+  
+            input {
+              position: absolute;
+              height: 0;
+              width: 0;
+              opacity: 0;
+              cursor: pointer;
+            }
+  
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 1.25rem;
+              aspect-ratio: 1/1;
+              background-color: #ddd;
+              border-radius: .125rem;
+              transition: all .2s;
+  
+              &:after {
+                content: "";
+                display: none;
+                position: absolute;
+                left: 35%;
+                top: 5%;
+                width: .25rem;
+                height: .75rem;
+                border: solid #FFF;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+    }  
+  }
+
+}
+.submit {
+  text-align: center;
+
+  button {
+    background-color: #bb6bd9;
+    font-size: 1.375rem;
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    transition: all .2s ease-out;
+
+    &:hover {
+      background-color: #9b51e0;
+    }
+  }
+}
+
+@import 'responsive'
